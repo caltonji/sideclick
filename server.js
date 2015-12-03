@@ -51,8 +51,9 @@ var makeCall = function() {
 }
 
 app.get('/:message', function (req, res) {
-    sendMessage(req.params.message);
-    res.send("Sending \"" + message + "\".");
+    var incoming_message = req.params.message
+    sendMessage(incoming_message);
+    res.send("Sending \"" + incoming_message + "\".");
 });
 
 app.get('/', function (req, res) {
