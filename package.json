@@ -1,0 +1,12 @@
+{
+  "name": "powerHour",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "twilio": "^2.5.2"
+  }
+}
