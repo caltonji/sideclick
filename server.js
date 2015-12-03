@@ -37,9 +37,9 @@ var sendMessage = function(message) {
 var makeCall = function() {
     //This REST call using the master/default account for the client...
     client.makeCall({
-        to:'+18477294512',
-        from:'+12245672736',
-        url:'http://example.com/someTwiml.php'
+        to:'+12245672736',
+        from:'+17082942538',
+        url:'http://twimlets.com/echo?Twiml=%3CResponse%3E%3CSay%3EHello+Chris%2C+thanks+for+the+call%21%3C%2FSay%3E%3C%2FResponse%3E'
     }, function(err, call) {
         if (err) {
             console.log({err : err});
@@ -52,6 +52,11 @@ var makeCall = function() {
 
 app.get('/:message', function (req, res) {
     sendMessage(req.params.message);
+    res.send();
+});
+
+app.get('/', function (req, res) {
+    makeCall();
     res.send();
 });
 
