@@ -7,12 +7,12 @@ var twilio = require('twilio');
 // twilio back end
 var client = new twilio.RestClient('AC2dceb711b11dc52eab8dcba69ef9bc15', 'e6bb4d3e089d38d917b0b144af94b453');
 
-var sendMessage = function() {
+var sendMessage = function(message) {
   console.log("yo");
     client.sms.messages.create({
         to:'+12245672736',
         from:'7082942538',
-        body:'Test, ignore.'
+        body: message
     }, function(error, message) {
         // The HTTP request to Twilio will run asynchronously. This callback
         // function will be called when a response is received from Twilio
@@ -50,8 +50,8 @@ var makeCall = function() {
     });
 }
 
-app.get('/', function (req, res) {
-    sendMessage();
+app.get('/:message', function (req, res) {
+    sendMessage(req.params.message);
     res.send();
 });
 
