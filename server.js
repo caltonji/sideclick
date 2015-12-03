@@ -52,12 +52,12 @@ var makeCall = function() {
 
 app.get('/:message', function (req, res) {
     sendMessage(req.params.message);
-    res.send();
+    res.send("sending" + message);
 });
 
 app.get('/', function (req, res) {
     makeCall();
-    res.send();
+    res.send("We're calling you now.");
 });
 
 
